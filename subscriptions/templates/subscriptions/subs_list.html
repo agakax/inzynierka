@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>E-zwierzątka</title>
+    </head>
+    <body>
+        <div>
+            <h1><a href="">Inżynierka</a></h1>
+        </div>
+        {% for subscription in user_subscriptions_list %}
+            <div>
+
+                <h3>Wysyłane zdjęcia zwierząt: {{ subscription.animals }}</h3>
+                <p>Częstotliwość wysyłanych zdjęć: {{ subscription.frequency }}</p>
+                <p>Subskrypcja kończy się za {{ subscription.get_days }}.</p>
+                <form method="post"><button type="submit">Edytuj</button></form>
+
+
+            </div>
+        {% endfor %}
+
+
+    </body>
+</html>

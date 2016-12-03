@@ -48,6 +48,13 @@ class Subscription(Model):
         day = 'dni'
         if days is 1:
             day = 'dzień'
-        name = '{user}: {frequency} - {animals}. Wygaśnie za {days} {day}.'.format(user=self.user, frequency=self.frequency,
-                                                                            animals=self.animals, days=days, day=day)
+        name = '{user}: {frequency} - {animals}. Wygaśnie za {days} {day}.'.format(user=self.user, frequency=self.frequency,                                                        animals=self.animals, days=days, day=day)
+        return name
+
+    def get_days(self):
+        days = (self.expiration_date - datetime.now(pytz.utc)).days
+        day = 'dni'
+        if days is 1:
+            day = 'dzień'
+        name = '{days} {day}'.format(days=days, day=day)
         return name
